@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2e9d4e">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<title>МЭШ-файлы</title>
+<style>
+:root{--bg:#f3f8ef;--cd:#fff;--tx:#14301b;--mu:#5f7a66;--ac:#2e9d4e;--on:#fff;--yl:#ffc933;--yt:#3b2f00;--hd:#2e9d4e;--bd:#dbe8d5;--dg:#c0362c;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1a12;--cd:#172a1c;--tx:#e8f3ea;--mu:#93ad99;--ac:#4fc46e;--on:#06240f;--hd:#1c3d26;--bd:#264832;--dg:#f2897f;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0f1a12;--cd:#172a1c;--tx:#e8f3ea;--mu:#93ad99;--ac:#4fc46e;--on:#06240f;--hd:#1c3d26;--bd:#264832;--dg:#f2897f;color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:16px/1.4 "Segoe UI",Roboto,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hd);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--hd);color:#fff;padding:12px 14px 14px;border-radius:0 0 20px 20px;z-index:5}
+.top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+h1{margin:0;font-size:22px}.sb{font-size:13px;opacity:.9}
+input{font:inherit}
+header input{width:100%;padding:11px 14px;border:0;border-radius:12px;background:#fff;color:#14301b}
+button,select{font:inherit;color:var(--tx)}
+.mu{color:var(--mu);font-size:14px}
+.bar2{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 14px 4px}
+#crumb{display:flex;flex-wrap:wrap;gap:6px}
+#crumb button{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:5px 11px;font-size:14px}
+#crumb button:last-child{background:var(--yl);border-color:var(--yl);color:var(--yt);font-weight:600}
+.lk{background:none;border:0;color:var(--ac);font-weight:700;padding:6px 4px;white-space:nowrap}
+main{padding:6px 14px 100px}
+.it{display:flex;align-items:center;background:var(--cd);border:1px solid var(--bd);border-radius:14px;margin:0 0 8px}
+.it.sl{border-color:var(--ac);box-shadow:0 0 0 2px var(--yl)}
+.mn{flex:1;min-width:0;display:flex;gap:12px;align-items:center;text-align:left;background:none;border:0;padding:10px 12px;color:inherit}
+.tile{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:24px;flex:none}
+.ft{background:var(--bg)}.ck{font-size:22px;color:var(--ac)}
+.nm{font-weight:600;word-break:break-word}.sn{font-size:13px;color:var(--mu);margin-top:2px}
+.dots{background:none;border:0;font-size:24px;padding:10px 14px;color:var(--mu)}
+.em{padding:40px 10px;text-align:center;color:var(--mu)}
+#st{padding:8px 16px 0;color:var(--ac);font-size:14px}#er{padding:0 16px;color:var(--dg);font-size:14px}
+#fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:58px;height:58px;border-radius:50%;border:0;background:var(--yl);color:var(--yt);font-size:32px;box-shadow:0 4px 14px #0003;z-index:6}
+#fab[hidden],#bar[hidden]{display:none}
+#bar{position:fixed;left:0;right:0;bottom:0;display:flex;gap:8px;align-items:center;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--cd);border-top:1px solid var(--bd);z-index:6}
+#bar span{flex:1}#bar button{padding:10px 14px;border-radius:12px;border:1px solid var(--bd);background:transparent}
+#bar .pri{background:var(--yl);color:var(--yt);border:0;font-weight:700}#bar button:disabled{opacity:.5}
+dialog{width:min(92vw,420px);max-height:88vh;overflow:auto;border:1px solid var(--bd);border-radius:16px;background:var(--cd);color:var(--tx);padding:16px}
+dialog::backdrop{background:#0008}
+dialog button,dialog select,dialog input{width:100%;margin-top:8px;padding:11px;border:1px solid var(--bd);border-radius:12px;background:transparent;color:var(--tx)}
+dialog .pri{background:var(--ac);color:var(--on);border:0;font-weight:700}dialog .dg{color:var(--dg)}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.grid button{margin:0;padding:6px;font-size:22px}.grid .on{outline:3px solid var(--yl)}
+.grid .sw{height:36px;border-radius:50%;border:0}
+#pl{max-height:38vh;overflow:auto}.pk{text-align:left}.pk.on{background:var(--yl);color:var(--yt);border-color:var(--yl);font-weight:700}
+</style></head><body>
+<header><div class="top"><h1>МЭШ-файлы</h1><span id="sub" class="sb">Загрузка…</span></div>
+<input type="search" id="q" placeholder="Поиск по названию и тексту"></header>
+<div id="st"></div><div id="er"></div>
+<div class="bar2"><div id="crumb"></div><div><button id="nf" class="lk">＋ Папка</button><button id="sl" class="lk">Выбрать</button></div></div>
+<main id="ls"></main>
+<input type="file" id="fi" multiple hidden accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.csv,.rtf,image/*">
+<button id="fab" aria-label="Добавить файлы">＋</button>
+<div id="bar" hidden><span id="bn"></span><button class="pri" id="bm">Переместить…</button><button id="bx">Отмена</button></div>
+<dialog id="dlg"><b id="dn"></b><div class="mu" id="dm"></div>
+<button class="pri" id="bo">Открыть</button><button id="bs">Отправить или сохранить</button><button id="bf">Переместить…</button>
+<button class="dg" id="bd">Удалить из приложения</button><button id="bc">Закрыть</button></dialog>
+<dialog id="mvd"><b>Куда переместить?</b><div class="mu" id="mt"></div><div id="pl"></div>
+<input id="mn" maxlength="60" placeholder="Новая папка внутри выбранной (необязательно)">
+<button class="pri" id="mok">Переместить</button><button id="mno">Отмена</button></dialog>
+<dialog id="edl"><b>Папка</b><input id="en" maxlength="60" placeholder="Название">
+<div class="mu" style="margin-top:10px">Значок</div><div class="grid" id="ei"></div>
+<input id="ee" maxlength="8" placeholder="Или свой значок: любой эмодзи">
+<div class="mu" style="margin-top:10px">Цвет</div><div class="grid" id="ec"></div>
+<button class="pri" id="eok">Сохранить</button><button id="emv">Переместить…</button><button class="dg" id="edel">Расформировать</button><button id="ecl">Закрыть</button></dialog>
+<script>
+const $=s=>document.querySelector(s);
+const showErr=m=>{const e=document.getElementById('er');if(e)e.textContent='Ошибка: '+m};
+window.onerror=m=>showErr(m);window.onunhandledrejection=v=>showErr((v.reason&&v.reason.message)||v.reason);
+const P='https://cdnjs.cloudflare.com/ajax/libs/';
+const load=u=>new Promise((ok,no)=>{const s=document.createElement('script');s.src=u;s.onload=ok;s.onerror=no;document.head.appendChild(s)});
+async function extract(f){
+ const n=f.name.toLowerCase();
+ try{
+  if(/\.(txt|csv)$/.test(n)||f.type.startsWith('text/'))return(await f.text()).slice(0,60000);
+  if(n.endsWith('.pdf')){
+   if(!window.pdfjsLib){await load(P+'pdf.js/3.11.174/pdf.min.js');await load(P+'pdf.js/3.11.174/pdf.worker.min.js');pdfjsLib.GlobalWorkerOptions.workerSrc=P+'pdf.js/3.11.174/pdf.worker.min.js'}
+   const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise;let t='';
+   for(let i=1;i<=Math.min(pdf.numPages,40)&&t.length<60000;i++){const c=await(await pdf.getPage(i)).getTextContent();t+=c.items.map(x=>x.str).join(' ')+'\n'}
+   return t}
+  if(/\.(docx|pptx|xlsx)$/.test(n)){
+   if(!window.JSZip)await load(P+'jszip/3.10.1/jszip.min.js');
+   const z=await JSZip.loadAsync(f);let t='';
+   for(const k of Object.keys(z.files))if(/^(word\/document|ppt\/slides\/slide\d+|xl\/sharedStrings)\.xml$/.test(k))
+    t+=(await z.files[k].async('string')).replace(/<\/(w:p|a:p|si)>/g,' ').replace(/<[^>]+>/g,'')+' ';
+   return t.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/\s+/g,' ').slice(0,60000)}
+ }catch(e){}
+ return''}
+
+let db,items=[],dirs=[],q='',here=null,cur=null,selMode=false,sel=new Set(),mv=[],tgt=null,ed=null,eI='📁',eC='#2e9d4e',busy=0;
+const open=()=>new Promise((ok,no)=>{const r=indexedDB.open('mesh-files',1);r.onupgradeneeded=()=>r.result.createObjectStore('f',{keyPath:'id',autoIncrement:true});r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
+const tx=(m,fn)=>new Promise((ok,no)=>{const t=db.transaction('f',m);const rq=fn(t.objectStore('f'));t.oncomplete=()=>ok(rq&&rq.result);t.onerror=()=>no(t.error);t.onabort=()=>no(t.error)});
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=b=>b<1048576?(b?Math.max(1,Math.round(b/1024)):0)+' КБ':(b/1048576).toFixed(1)+' МБ';
+const pl=(n,a)=>n%10==1&&n%100!=11?a[0]:n%10>1&&n%10<5&&(n%100<10||n%100>20)?a[1]:a[2];
+const icon=n=>/\.pdf$/i.test(n)?'📕':/\.docx?$/i.test(n)?'📘':/\.pptx?$/i.test(n)?'📙':/\.xlsx?$/i.test(n)?'📗':/\.(jpe?g|png|webp|gif|heic)$/i.test(n)?'🖼️':'📄';
+const st=t=>$('#st').textContent=t;
+const ZERO=['файл','файла','файлов'];
+const ICONS=['📁','📂','📚','📖','✏️','📐','🧮','🔬','🧪','🌍','🗺️','💻','🎨','🎵','⚽','🏛️','🧬','📝','⭐','🎒'];
+const COLORS=['#2e9d4e','#f5b700','#2f80ed','#e5534b','#8e5bd4','#f2994a','#14a3a3','#7a8791'];
+const cmp=(x,y)=>x.name.localeCompare(y.name,'ru',{numeric:true,sensitivity:'base'});
+const D=id=>dirs.find(d=>d.id===id);
+const kids=id=>dirs.filter(d=>(d.parent??null)===id);
+const inF=id=>items.filter(i=>(i.parent??null)===id);
+const inside=(id,anc)=>{for(let d=D(id);d;d=D(d.parent))if(d.id===anc)return true;return false};
+const pathOf=id=>{const a=[];for(let d=D(id);d;d=D(d.parent))a.unshift(d);return a};
+const put=o=>tx('readwrite',s=>s.put(o));
+async function mkDir(name,parent){const d={kind:'dir',name,parent,icon:'📁',color:COLORS[0],added:Date.now()};d.id=await tx('readwrite',s=>s.add(d));dirs.push(d);return d.id}
+function dirHtml(d){
+ const nf=kids(d.id).length,ni=inF(d.id).length,c=d.color||COLORS[0],on=sel.has('d'+d.id);
+ return '<div class="it'+(on?' sl':'')+'"><button class="mn" data-d="'+d.id+'">'+(selMode?'<span class="ck">'+(on?'☑':'☐')+'</span>':'')+'<span class="tile" style="background:'+c+'2b">'+esc(d.icon||'📁')+'</span><span><div class="nm">'+esc(d.name)+'</div><div class="sn">'+(nf?nf+' '+pl(nf,['папка','папки','папок'])+' · ':'')+ni+' '+pl(ni,ZERO)+'</div></span></button>'+(selMode?'':'<button class="dots" data-e="'+d.id+'" aria-label="Изменить папку">⋯</button>')+'</div>'}
+function fileHtml(i,k,flat){
+ let sn='';if(k&&!i.name.toLowerCase().includes(k)){const p=i.text.toLowerCase().indexOf(k);if(p>=0)sn='<div class="sn">…'+esc(i.text.slice(Math.max(0,p-30),p+70))+'…</div>'}
+ const on=sel.has('f'+i.id),w=flat?' · 📁 '+esc(pathOf(i.parent??null).map(d=>d.name).join(' › ')||'Главная'):'';
+ return '<div class="it'+(on?' sl':'')+'"><button class="mn" data-id="'+i.id+'">'+(selMode?'<span class="ck">'+(on?'☑':'☐')+'</span>':'')+'<span class="tile ft">'+icon(i.name)+'</span><span><div class="nm">'+esc(i.name)+'</div><div class="sn">'+fmt(i.size)+w+'</div>'+sn+'</span></button></div>'}
+function render(){
+ if(here!==null&&!D(here))here=null;
+ const k=q.trim().toLowerCase();
+ $('#sub').textContent=items.length+' '+pl(items.length,ZERO)+' · '+fmt(items.reduce((t,i)=>t+i.size,0));
+ $('#sl').textContent=selMode?'Готово':'Выбрать';$('#bar').hidden=!selMode;$('#fab').hidden=selMode;
+ $('#bn').textContent='Выбрано: '+sel.size;$('#bm').disabled=!sel.size;
+ let h='';
+ if(k){
+  $('#crumb').innerHTML='';
+  h=dirs.filter(d=>d.name.toLowerCase().includes(k)).sort(cmp).map(dirHtml).join('')+items.filter(i=>(i.name+' '+i.text).toLowerCase().includes(k)).sort(cmp).map(i=>fileHtml(i,k,true)).join('');
+ }else{
+  $('#crumb').innerHTML='<button data-c="">🏠 Главная</button>'+pathOf(here).map(d=>'<button data-c="'+d.id+'">'+esc(d.icon||'📁')+' '+esc(d.name)+'</button>').join('');
+  h=kids(here).sort(cmp).map(dirHtml).join('')+inF(here).sort(cmp).map(i=>fileHtml(i,'',false)).join('');
+ }
+ if(!h)h='<div class="em">'+(k?'Ничего не найдено.':here!==null?'Папка пуста. Нажмите «＋», чтобы добавить файлы, или переместите сюда из других мест.':'Здесь пока пусто.<br>В МЭШ откройте файл → «Поделиться» → «МЭШ-файлы»: он сохранится сам. Можно и вручную кнопкой «＋».')+'</div>';
+ $('#ls').innerHTML=h}
+function openFile(id){cur=items.find(i=>i.id===id);$('#dn').textContent=cur.name;$('#dm').textContent=fmt(cur.size)+' · добавлен '+new Date(cur.added).toLocaleDateString('ru');$('#dlg').showModal()}
+function pickList(){
+ const bad=d=>mv.some(k=>k[0]==='d'&&inside(d.id,+k.slice(1)));
+ const row=(id,ic,nm,dep)=>'<button class="pk'+(tgt===id?' on':'')+'" data-t="'+(id===null?'':id)+'" style="padding-left:'+(12+dep*18)+'px">'+esc(ic)+' '+esc(nm)+'</button>';
+ let h=row(null,'🏠','Главная',0);
+ const walk=(p,dep)=>kids(p).sort(cmp).forEach(d=>{if(bad(d))return;h+=row(d.id,d.icon||'📁',d.name,dep);walk(d.id,dep+1)});
+ walk(null,1);$('#pl').innerHTML=h}
+function askMove(list){if(!list.length)return;mv=list;tgt=here;$('#mn').value='';$('#mt').textContent='Выбрано: '+list.length;pickList();$('#mvd').showModal()}
+function edDraw(){$('#ei').innerHTML=ICONS.map(c=>'<button class="'+(c===eI?'on':'')+'" data-i="'+c+'">'+c+'</button>').join('');$('#ec').innerHTML=COLORS.map(c=>'<button class="sw'+(c===eC?' on':'')+'" data-c="'+c+'" style="background:'+c+'" aria-label="Цвет"></button>').join('')}
+function editDir(id){ed=D(id);eI=ed.icon||'📁';eC=ed.color||COLORS[0];$('#en').value=ed.name;$('#ee').value='';edDraw();$('#edl').showModal()}
+$('#fab').onclick=()=>$('#fi').click();
+$('#fi').onchange=async e=>{
+ const fs=[...e.target.files];e.target.value='';let c=0,skip=0;
+ for(const f of fs){c++;st('Обработка '+c+' из '+fs.length+': '+f.name);
+  if(items.some(i=>i.name===f.name&&i.size===f.size&&(i.parent??null)===here)){skip++;continue}
+  const text=await extract(f),it={name:f.name,size:f.size,added:Date.now(),text,blob:f,parent:here};
+  try{it.id=await tx('readwrite',s=>s.add(it));items.push(it);render()}catch(x){st('Не хватило места или доступ закрыт: '+f.name);return}}
+ st(skip?'Уже были в этой папке: '+skip:'');setTimeout(()=>st(''),4000);render()};
+$('#q').oninput=e=>{q=e.target.value;render()};
+$('#nf').onclick=async()=>{const n=prompt('Название папки');if(n&&n.trim()){await mkDir(n.trim().slice(0,60),here);render()}};
+$('#sl').onclick=()=>{selMode=!selMode;sel.clear();render()};
+$('#bx').onclick=()=>{selMode=false;sel.clear();render()};
+$('#bm').onclick=()=>askMove([...sel]);
+$('#crumb').onclick=e=>{const b=e.target.closest('[data-c]');if(!b)return;here=b.dataset.c===''?null:+b.dataset.c;render()};
+$('#ls').onclick=e=>{
+ const x=e.target.closest('[data-e]');if(x){editDir(+x.dataset.e);return}
+ const m=e.target.closest('.mn');if(!m)return;
+ const key=m.dataset.d!==undefined?'d'+m.dataset.d:'f'+m.dataset.id;
+ if(selMode){sel.has(key)?sel.delete(key):sel.add(key);render();return}
+ if(m.dataset.d!==undefined){here=+m.dataset.d;q='';$('#q').value='';render();scrollTo(0,0);return}
+ openFile(+m.dataset.id)};
+$('#bc').onclick=()=>$('#dlg').close();
+$('#bf').onclick=()=>{$('#dlg').close();askMove(['f'+cur.id])};
+$('#bd').onclick=async()=>{if(!confirm('Удалить «'+cur.name+'» из приложения?'))return;await tx('readwrite',s=>s.delete(cur.id));items=items.filter(i=>i!==cur);$('#dlg').close();render()};
+$('#bo').onclick=()=>{const u=URL.createObjectURL(cur.blob);if(!window.open(u,'_blank'))location.href=u;setTimeout(()=>URL.revokeObjectURL(u),120000)};
+$('#bs').onclick=async()=>{const f=new File([cur.blob],cur.name,{type:cur.blob.type});
+ if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:cur.name});return}catch(e){if(e.name==='AbortError')return}}
+ const u=URL.createObjectURL(f),a=document.createElement('a');a.href=u;a.download=cur.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)};
+
+$('#pl').onclick=e=>{const b=e.target.closest('[data-t]');if(!b)return;tgt=b.dataset.t===''?null:+b.dataset.t;pickList()};
+$('#mno').onclick=()=>$('#mvd').close();
+$('#mok').onclick=async()=>{
+ let t=tgt;const nn=$('#mn').value.trim().slice(0,60);if(nn)t=await mkDir(nn,t);
+ for(const k of mv){const id=+k.slice(1);
+  if(k[0]==='d'){const d=D(id);if(d&&t!==d.id&&!(t!==null&&inside(t,d.id))){d.parent=t;await put(d)}}
+  else{const i=items.find(x=>x.id===id);if(i){i.parent=t;await put(i)}}}
+ $('#mvd').close();selMode=false;sel.clear();render()};
+$('#ei').onclick=e=>{const b=e.target.closest('[data-i]');if(!b)return;eI=b.dataset.i;$('#ee').value='';edDraw()};
+$('#ec').onclick=e=>{const b=e.target.closest('[data-c]');if(!b)return;eC=b.dataset.c;edDraw()};
+$('#ee').oninput=e=>{const v=e.target.value.trim();if(!v)return;eI=(window.Intl&&Intl.Segmenter)?[...new Intl.Segmenter('ru',{granularity:'grapheme'}).segment(v)][0].segment:[...v][0];edDraw()};
+$('#eok').onclick=async()=>{const n=$('#en').value.trim().slice(0,60);if(!n)return;ed.name=n;ed.icon=eI;ed.color=eC;await put(ed);$('#edl').close();render()};
+$('#emv').onclick=()=>{$('#edl').close();askMove(['d'+ed.id])};
+$('#ecl').onclick=()=>$('#edl').close();
+$('#edel').onclick=async()=>{
+ if(!confirm('Расформировать папку «'+ed.name+'»? Файлы и вложенные папки переместятся на уровень выше.'))return;
+ const up=ed.parent??null;
+ for(const d of kids(ed.id)){d.parent=up;await put(d)}
+ for(const i of inF(ed.id)){i.parent=up;await put(i)}
+ await tx('readwrite',s=>s.delete(ed.id));dirs=dirs.filter(d=>d!==ed);$('#edl').close();if(here===ed.id)here=up;render()};
+async function sync(){
+ if(busy)return;busy=1;
+ try{
+  const all=(await tx('readonly',s=>s.getAll()))||[];
+  dirs=all.filter(r=>r.kind==='dir');items=all.filter(r=>r.kind!=='dir');
+  for(const nm of new Set(items.filter(i=>typeof i.folder==='string').map(i=>i.folder))){
+   const id=await mkDir(nm,null);for(const i of items.filter(i=>i.folder===nm)){i.parent=id;delete i.folder;await put(i)}}
+  render();
+  const p=items.filter(i=>i.pending);let c=0;
+  for(const i of p){c++;st('Читаю текст: '+c+' из '+p.length);i.text=await extract(i.blob);delete i.pending;try{await put(i)}catch(e){}render()}
+  if(p.length)st('')
+ }finally{busy=0}
+}
+(async()=>{
+ try{db=await open();
+  try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+  const m=location.search.match(/shared=(\d+)/);
+  if(m)history.replaceState(null,'',location.pathname);
+  await sync();
+  if(m){const c=+m[1];st(c?'Сохранено автоматически: '+c+' '+pl(c,['файл','файла','файлов']):'Эти файлы уже есть в приложении');setTimeout(()=>st(''),5000)}
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)sync()});
+  if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{})}
+ catch(e){$('#sub').textContent='Хранилище недоступно';$('#ls').innerHTML='<div class="em">Браузер не дал доступ к памяти. Откройте приложение в Chrome вне режима инкогнито.</div>'}
+})();
+</script></body></html>
